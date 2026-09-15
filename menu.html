@@ -86,7 +86,7 @@
 
     <!-- 💡 畫面展示區：只留一個 img 標籤，預設顯示第一張圖 -->
     <div class="contain">
-        <img id="menu-display" src="/image/1.jpg" alt="..." loading="lazy">
+        <img id="menu-display" src="/tanhuo/image/1.jpg" alt="..." loading="lazy">
     </div>
 
     <!-- 💡 完整的修改後程式碼片段（直接替換你的 <script> 區塊） -->
@@ -112,22 +112,22 @@
 
     // 點擊價位按鈕：清空容器並塞入單張圖片
     btn659.addEventListener('click', function() {
-        contain.innerHTML = '<img id="menu-display" src="/image/3.jpg" alt="..." loading="lazy">'; 
+        contain.innerHTML = '<img id="menu-display" src="/tanhuo/image/3.jpg" alt="..." loading="lazy">'; 
     });
 
     btn799.addEventListener('click', function() {
-        contain.innerHTML = '<img id="menu-display" src="/image/4.jpg" alt="..." loading="lazy">'; 
+        contain.innerHTML = '<img id="menu-display" src="/tanhuo/image/4.jpg" alt="..." loading="lazy">'; 
     });
 
     btn999.addEventListener('click', function() {
-        contain.innerHTML = '<img id="menu-display" src="/image/5.jpg" alt="..." loading="lazy">'; 
+        contain.innerHTML = '<img id="menu-display" src="/tanhuo/image/5.jpg" alt="..." loading="lazy">'; 
     });
     
     // 💡 點擊單點按鈕：一次塞入兩張圖片，它們會自動由上往下排列
     btnorder.addEventListener('click', function() {
         contain.innerHTML = `
-            <img src="/image/6.jpg" alt="..." loading="lazy">
-            <img src="/image/7.jpg" alt="..." loading="lazy">
+            <img src="/tanhuo/image/6.jpg" alt="..." loading="lazy">
+            <img src="/tanhuo/image/7.jpg" alt="..." loading="lazy">
         `;
     });
 </script>
