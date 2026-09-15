@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>炭火燒肉工房</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+            background-color: rgb(10, 10, 10);
+        }
+
+        /* 讓按鈕群組在網頁上方水平置中 */
+        .button-group {
+            text-align: center;
+            padding: 20px 0 5px 0;
+        }
+        .button-group button {
+            margin: 5px;
+        }
+
+        .contain {
+            margin: 0;
+            background-color: rgb(10, 10, 10);
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 80dvh;
+            width: 100%;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .contain img {
+            width: 600px;
+            max-width: 90%; /* 確保手機版不會爆開 */
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        dialog {
+            border: none;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            width: 350px;
+            text-align: center;
+        }
+        /* 背景遮罩樣式 */
+        dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(2px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 💡 將按鈕用一個 div 包起來達成水平置中，並微調 ID 名稱避免純數字 -->
+    <div class="button-group">
+        <button id="notice" class="btn btn-warning">用餐須知</button>
+        <button id="btn-659" class="btn btn-outline-light">659/699價位</button>
+        <button id="btn-799" class="btn btn-outline-light">799價位</button>
+        <button id="btn-999" class="btn btn-outline-light">999價位</button>
+        <button id="btn-order" class="btn btn-outline-light">單點</button>
+
+    </div>
+
+    <!-- 提示窗結構 -->
+    <dialog id="用餐須知">
+        <h3 style="color: #e67e22; margin-bottom: 15px;">🥩 用餐須知</h3>
+        <p style="text-align: left; font-size: 14px; line-height: 1.8;">
+            草尼瑪
+        </p>
+        <button id="closeBtn" class="btn btn-secondary mt-2">謝謝</button>
+    </dialog>
+
+    <!-- 💡 畫面展示區：只留一個 img 標籤，預設顯示第一張圖 -->
+    <div class="contain">
+        <img id="menu-display" src="/image/1.jpg" alt="..." loading="lazy">
+    </div>
+
+    <!-- 💡 完整的修改後程式碼片段（直接替換你的 <script> 區塊） -->
+<script>
+    const dialog = document.getElementById('用餐須知');
+    const btnNotice = document.getElementById('notice');
+    const btnClose = document.getElementById('closeBtn');
+    
+    const btn659 = document.getElementById('btn-659');
+    const btn799 = document.getElementById('btn-799');
+    const btn999 = document.getElementById('btn-999');
+    const btnorder = document.getElementById('btn-order');
+
+    // 💡 注意：改抓取外層的容器，這樣才能塞多張圖
+    const contain = document.querySelector('.contain'); 
+
+    btnNotice.addEventListener('click', () => dialog.showModal());
+    btnClose.addEventListener('click', () => dialog.close());
+    
+    window.onload = function() {
+        dialog.showModal();
+    };
+
+    // 點擊價位按鈕：清空容器並塞入單張圖片
+    btn659.addEventListener('click', function() {
+        contain.innerHTML = '<img id="menu-display" src="/image/3.jpg" alt="..." loading="lazy">'; 
+    });
+
+    btn799.addEventListener('click', function() {
+        contain.innerHTML = '<img id="menu-display" src="/image/4.jpg" alt="..." loading="lazy">'; 
+    });
+
+    btn999.addEventListener('click', function() {
+        contain.innerHTML = '<img id="menu-display" src="/image/5.jpg" alt="..." loading="lazy">'; 
+    });
+    
+    // 💡 點擊單點按鈕：一次塞入兩張圖片，它們會自動由上往下排列
+    btnorder.addEventListener('click', function() {
+        contain.innerHTML = `
+            <img src="/image/6.jpg" alt="..." loading="lazy">
+            <img src="/image/7.jpg" alt="..." loading="lazy">
+        `;
+    });
+</script>
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
